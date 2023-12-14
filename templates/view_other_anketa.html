@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Anketa</title>
+    <title>Просмотр анкеты</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='edit.css') }}">
 </head>
 <body>
-    <h1>View Anketa</h1>
+    <h1>Просмотр анкеты</h1>
 
-    <!-- Add this form for filtering -->
     <form method="post" action="{{ url_for('filter_anketa') }}">
         <label for="search_gender">Пол для поиска:</label>
         <select id="search_gender" name="search_gender">
@@ -24,10 +23,10 @@
     </form>
 
     <div>
-        <!-- Отображение списка анкет -->
+       
         {% if anketa_list %}
             {% for anketa in anketa_list %}
-                <!-- Отображение информации об анкете -->
+              
                 <div class="anketa">
                     <p><strong>Имя пользователя:</strong> {{ anketa[0] }}</p>
                     <p><strong>Возраст:</strong> {{ anketa[1] if anketa[1] else 'Не указан' }}</p>
@@ -44,7 +43,6 @@
         {% endif %}
     </div>
 
-    <!-- Pagination logic remains the same -->
     {% if anketa_list|length == limit %}
         <form method="get" action="{{ url_for('view_anketa') }}">
             <input type="hidden" name="offset" value="{{ offset+limit }}">
