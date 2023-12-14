@@ -30,7 +30,6 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG)
 def connect_db():
     return psycopg2.connect(**db_config)
 
-
 def dbClose(cursor,connection):
     cursor.close()
     connection.close()
@@ -127,8 +126,6 @@ def glav():
 
     # Получение имени пользователя из сессии
     username = session.get('username')
-
-
     return render_template('glav.html', username=username)
 
 # Страница анкеты
@@ -366,8 +363,6 @@ def get_filtered_anketa_list(username, search_age=None, search_gender=None, offs
                 ORDER BY id
                 OFFSET %s LIMIT %s
             """
-
-
             print(f"Query: {query}")
             print(f"Parameters: {username}, {search_age}, {search_age}, {search_gender}, {search_gender}, {offset}, {limit}")
             
@@ -421,7 +416,6 @@ def filter_anketa():
     else:
         # Возвращение ошибки, если получен GET-запрос
         return abort(400)
-
 
 # Функция для удаления пользователя из базы данных
 def delete_user(username):
