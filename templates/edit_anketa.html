@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='edit.css') }}">
 </head>
 <body>
-    <h1  style="  color: #ff009d;
+    <h1  style="  color: #0f0009;
     font-size: 200%; /* изменено: размер текста увеличен */
     text-shadow: 3px 4px 5px  rgb(255, 255, 255); text-align: center;">Изменение анкеты</h1>
 
@@ -34,6 +34,9 @@
         <input type="file" id="photo" name="photo">
         <br>
         <button  type="submit" value="Save">Сохранить</button>
+    </form>
+    <form method="get" action="{{ url_for('glav') }}">
+        <button type="submit">На главную</button>
     </form>
 </body>
 </html>

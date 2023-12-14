@@ -27,11 +27,10 @@
         <form method="post">
             <button type="submit">Скрыть анкету</button>
         </form>
+        <form method="get" action="{{ url_for('glav') }}">
+            <button type="submit">На главную</button>
+        </form>
     </main>
-
-    <footer>
-       <nav><a href="{{ url_for('glav') }}">На главную</a></nav>
-    </footer>
 
 </body>
 </html>
